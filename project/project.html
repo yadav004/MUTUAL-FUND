@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutual Fund Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://wallpapercave.com/wp/wp2939895.jpg'); 
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #111011;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(16, 155, 90, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #b89945;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Mutual Fund Login</h2>
+        <form onsubmit="redirectToNextPage(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <input type="submit" value="Login" onclick="redirectToNextPage()" >
+        </form><br>
+        <a style="text-align: center;" href="Register.html">create new account?//Signup/Register</a>
+      </div>
+<script>
+     function redirectToNextPage(event) {
+            event.preventDefault();
+            window.location.href = 'intro.html';
+        }
+</script>   
+</body>
+</html>

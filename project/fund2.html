@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Side-by-Side Layout</title>
+<style>
+     body {
+    margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-image: linear-gradient(to right, #19191a, #1c1b1b);
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #fff;
+}
+    .container {
+        display: flex;
+    }
+    .calculator {
+        width: 50%;
+        padding: 20px;
+        
+    }
+    .result-side {
+        width: 50%;
+        padding: 20px;
+       
+    }
+</style>
+</head>
+<body>
+<div class="container">
+        <div class="calculator">
+            <h2>Mutual Fund Calculator</h2>
+            <label for="initial-investment">Initial Investment (₹):</label>
+            <input type="number" id="initial-investment" placeholder="Enter initial investment"><br><br>
+            <label for="monthly-contribution">Monthly Contribution (₹):</label>
+            <input type="number" id="monthly-contribution" placeholder="Enter monthly contribution"><br><br>
+            <label for="annual-return">Annual Return (%):</label>
+            <input type="number" id="annual-return" placeholder="Enter annual return"><br><br>
+            <label for="years">Years:</label>
+            <input type="number" id="years" placeholder="Enter number of years"><br><br>
+            <button onclick="calculate()">Calculate</button>
+    </div>
+    <div class="result-side">
+        <h2>Calculated Results</h2>
+        <div id="result"></div>
+    </div>
+</div>
+
+
+<script>
+      function calculate() {
+        var initialInvestment = parseFloat(document.getElementById('initial-investment').value);
+        var monthlyContribution = parseFloat(document.getElementById('monthly-contribution').value);
+        var annualReturn = parseFloat(document.getElementById('annual-return').value);
+        var years = parseInt(document.getElementById('years').value);
+
+        var monthlyReturn = (annualReturn / 12) / 100;
+        var totalMonths = years * 12;
+
+        var futureValue = initialInvestment * Math.pow((1 + monthlyReturn), totalMonths) +
+                          monthlyContribution * ((Math.pow((1 + monthlyReturn), totalMonths) - 1) / monthlyReturn);
+
+        document.getElementById('result').innerHTML = "Future Value: ₹" + futureValue.toFixed(2);
+    }
+</script>
+</body>
+</html>
